@@ -86,5 +86,19 @@ namespace SQLiteDemo.Repositories
             }
            
         }
+        public void Delete(int id)
+        {
+            Customer newCustomer = Get(id);
+            int result = 0;
+            try
+            {
+                result = connection.Delete(newCustomer);
+                StatusMessage = $"{result} row(s) deleted";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Error {ex.Message}";
+            }
+        }
     }
 }
