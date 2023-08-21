@@ -3,7 +3,7 @@
     x:Class="SQLiteDemo.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:SQLiteDemo"
+    xmlns:local="clr-namespace:SQLiteDemo.MVVM.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
