@@ -11,7 +11,7 @@
             <Button Text="AddOrUpdate" Command="{Binding AddOrUpdateCommand}"/>
            
         </VerticalStackLayout>
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Customers}" SelectionMode="Single" SelectedItem="{Binding CurrentCustomer}">
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Customers}" SelectionMode="Single" SelectedItem="{Binding CurrentCustomer}" Margin="10">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>

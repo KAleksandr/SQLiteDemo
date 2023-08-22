@@ -4,6 +4,7 @@ using SQLiteDemo.MVVM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,16 @@ namespace SQLiteDemo.Repositories
             {
                 StatusMessage = $"Error {ex.Message}";
             }
+        }
+        public List<Customer> GetAll(Expression<Func<Customer, bool>> predicate)
+        {
+            try
+            {
+                return connection.Table<Customer>().Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            { StatusMessage = $"Error {ex.Message}"; }
+            return null;
         }
     }
 }
