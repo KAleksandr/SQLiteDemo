@@ -16,6 +16,7 @@ namespace SQLiteDemo.MVVM.ViewModels
         public List<Customer> Customers { get; set; }
         public Customer CurrentCustomer { get; set; }
         public ICommand AddOrUpdateCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public MainPageViewModel()
         {
             Refresh();
@@ -26,6 +27,11 @@ namespace SQLiteDemo.MVVM.ViewModels
                 App.CustomerRepo.AddOrUpdate(CurrentCustomer);
                 Console.WriteLine(App.CustomerRepo.StatusMessage);
                 GenerateNewCustomer();
+                Refresh();
+            });
+            DeleteCommand = new Command(() =>
+            {
+                App.CustomerRepo.Delete(CurrentCustomer.Id);
                 Refresh();
             });
         }

@@ -14,10 +14,20 @@
         <CollectionView Grid.Row="1" ItemsSource="{Binding Customers}" SelectionMode="Single" SelectedItem="{Binding CurrentCustomer}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete" 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}, Path=DeleteCommand}"
+                                           BackgroundColor="Purple"/>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                   
                     <Grid ColumnDefinitions="*,*">
                         <Label Text="{Binding Name}"/>
                         <Label Text="{Binding Address}" Grid.Column="1"/>
                     </Grid>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
