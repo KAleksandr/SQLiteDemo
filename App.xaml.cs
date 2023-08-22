@@ -10,6 +10,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 		CustomerRepo= repo;
+
 		MainPage = new MainPage();
 	}
 }

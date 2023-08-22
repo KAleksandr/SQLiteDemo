@@ -13,11 +13,12 @@ namespace SQLiteDemo.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class MainPageViewModel
     {
-        public List<Customer> customers { get; set; }
+        public List<Customer> Customers { get; set; }
         public Customer CurrentCustomer { get; set; }
         public ICommand AddOrUpdateCommand { get; set; }
         public MainPageViewModel()
         {
+            Refresh();
             GenerateNewCustomer();
             AddOrUpdateCommand =
             new Command(async ()=>
@@ -25,6 +26,7 @@ namespace SQLiteDemo.MVVM.ViewModels
                 App.CustomerRepo.AddOrUpdate(CurrentCustomer);
                 Console.WriteLine(App.CustomerRepo.StatusMessage);
                 GenerateNewCustomer();
+                Refresh();
             });
         }
 
@@ -34,6 +36,9 @@ namespace SQLiteDemo.MVVM.ViewModels
                 .RuleFor(x=>x.Address, f=>f.Person.Address.Street).Generate();
         }
 
-        
+        private void Refresh()
+        {
+            Customers = App.CustomerRepo.GetAll();
+        }
     }
 }
