@@ -25,7 +25,8 @@ namespace SQLiteDemo.Repositories
            
             try
             {
-                connection.Delete(item);                
+                //connection.Delete(item);                
+                connection.Delete(item, true);                
             }
             catch (Exception ex)
             {

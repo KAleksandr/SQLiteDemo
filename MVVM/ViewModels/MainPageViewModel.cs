@@ -47,7 +47,8 @@ namespace SQLiteDemo.MVVM.ViewModels
 
         private void Refresh()
         {            
-            Customers = App.CustomerRepo.GetItems();
+            //Customers = App.CustomerRepo.GetItems();
+            Customers = App.CustomerRepo.GetItemsWhithChildren();
             var passports = App.PasportRepo.GetItems();
         }
     }
