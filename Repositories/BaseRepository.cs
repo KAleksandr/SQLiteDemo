@@ -107,5 +107,16 @@ namespace SQLiteDemo.Repositories
         {
             connection.InsertWithChildren(item, recursive);
         }
+
+        public List<T> GetItemsWhithChildren()
+        {
+            try
+            {
+                return connection.GetAllWithChildren<T>().ToList();
+            }
+            catch (Exception ex)
+            { StatusMessage = $"Error {ex.Message}"; }
+            return null;
+        }
     }
 }

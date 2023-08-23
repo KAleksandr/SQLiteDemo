@@ -15,6 +15,7 @@ namespace SQLiteDemo.Abstractions
         T GetItem(Expression<Func<T, bool>> predicate);
         List<T> GetItems();
         List<T> GetItems(Expression<Func<T, bool>> predicate);
+        List<T> GetItemsWhithChildren();
         void DeleteItems(T item);
     }
 }
