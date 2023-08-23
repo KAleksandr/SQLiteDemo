@@ -1,6 +1,6 @@
 ﻿using SQLite;
 using SQLiteDemo.Abstractions;
-
+using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace SQLiteDemo.Repositories
         {
             connection = new SQLiteConnection(Сonstans.DatabasePath, Сonstans.Flags);
             connection.CreateTable<T>();
-
+           
         }
         public void DeleteItems(T item)
         {
@@ -101,6 +101,11 @@ namespace SQLiteDemo.Repositories
             catch (Exception ex)
             {
             }
+        }
+
+        public void SaveItemWhithChildren(T item, bool recursive = false)
+        {
+            connection.InsertWithChildren(item, recursive);
         }
     }
 }

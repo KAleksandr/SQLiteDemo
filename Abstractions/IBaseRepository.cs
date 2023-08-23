@@ -10,6 +10,7 @@ namespace SQLiteDemo.Abstractions
     public interface IBaseRepository<T> : IDisposable where T : TableData, new()
     {
         void SaveItem(T item);
+        void SaveItemWhithChildren(T item, bool recursive = false);
         T GetItem(int id);
         T GetItem(Expression<Func<T, bool>> predicate);
         List<T> GetItems();
