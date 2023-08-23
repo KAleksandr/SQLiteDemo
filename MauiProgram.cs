@@ -17,6 +17,7 @@ public static class MauiProgram
 			});
 		builder.Services.AddSingleton<BaseRepository<Customer>>();
 		builder.Services.AddSingleton<BaseRepository<Order>>();
+		builder.Services.AddSingleton<BaseRepository<Passport>>();
 
 		return builder.Build();
 	}
